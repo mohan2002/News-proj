@@ -1,32 +1,29 @@
-import './App.css';
-import { AuthProvider } from './Context/AuthContext';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
-import Signup from './AuthPages/Signup'
-import { Container } from 'react-bootstrap';
-import Login from './AuthPages/Login';
-import ForgotPassword from './AuthPages/ForgotPassword';
-import PrivateRoute from './AuthPages/PrivateRoute';
-import Homepage from './Pages/Homepage';
+import React from "react";
+import Signup from "./AuthPages/Signup";
+import { AuthProvider } from "./Context/AuthContext";
+import {BrowserRouter as Router, Switch,Route} from 'react-router-dom'
+import Homepage from "./Pages/Homepage";
+import Login from './AuthPages/Login'
+import PrivateRoute from "./AuthPages/PrivateRoute";
+import ForgotPassword from "./AuthPages/ForgotPassword";
 function App() {
   return (
-    <Container className="d-flex align-items-center justify-content-center"
-    style={{minHeight : "100vh"}}>
-    <div className="w-100" style={{maxWidth : "400px"}}>
     
-    
-    <AuthProvider>
-      <Router>
+    <div>
+    <Router>
+      <AuthProvider>
         <Switch>
-          <PrivateRoute exact path="/" component={Homepage}/>
+          
+          <PrivateRoute exact path='/' component={Homepage}/>
           <Route path='/signup' component={Signup}/>
           <Route path='/login' component={Login}/>
-          <Route path='/forgot-password' component={ForgotPassword}/>
-        
+          <Route path= '/forgot-password' component={ForgotPassword}/>
+          
         </Switch>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
     </div>
-    </Container>
+      
   );
 }
 
