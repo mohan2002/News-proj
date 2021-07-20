@@ -21,7 +21,7 @@ function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value,passwordRef.current.value)
-            history.push("/")
+            history.push("/homepage")
         }
         catch{
             setError('Failed to login an account')
@@ -54,7 +54,7 @@ function Login() {
                         Login
                         </Button>
                         <div className="w-100 text-center mt-3">
-                            <Link to="/forgot-password">Forgot Password</Link>
+                        <Link to="/password">Forgot Password</Link>
                         </div>
                     </Form>
                 </Card.Body>

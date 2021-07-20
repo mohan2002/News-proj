@@ -1,37 +1,37 @@
 export const ListItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '/homepage',
         Cname: 'nav-links'
     },
     {
         title: 'Buisness',
-        url: '#',
+        url: '/buisness',
         Cname: 'nav-links'
     },
     {
         title: 'Technology',
-        url: '#',
+        url: '/technology',
         Cname: 'nav-links'
     },
     {
         title: 'Sports',
-        url: '#',
+        url: '/sports',
         Cname: 'nav-links'
     },
     {
         title: 'Entertainment',
-        url: '#',
+        url: '/entertainment',
         Cname: 'nav-links'
     },
     {
         title: 'Health',
-        url: '#',
+        url: '/health',
         Cname: 'nav-links'
     },
     {
         title: 'Science',
-        url: '#',
+        url: '/science',
         Cname: 'nav-links'
     },
 ]

@@ -1,15 +1,12 @@
 import React from 'react'
 import MainNavigation from '../Navigation/MainNavigation'
-
-function Homepage() {
-    
+function Science() {
     return (
-        <div className="main">
+        <div>
             <MainNavigation/>
-            <h1>Homepage</h1>
+            <h1>Science</h1>
         </div>
     )
-    
 }
 
-export default Homepage
+export default Science

@@ -25,7 +25,7 @@ function Signup() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value,passwordRef.current.value)
-            history.push('/')
+            history.push('/homepage')
         }
         catch{
             setError('Failed to create an account')
@@ -59,12 +59,12 @@ function Signup() {
                         </Form.Group>
                         <Button disabled={loading} className="w-100 mt-3"type="submit">Sign Up</Button>
                     
-                    
+                        
                     </Form>
                 </Card.Body>
           </Card>  
           <div className="w-100 text-center mt-2">
-                Already have an account? <Link to='/login'>Log in</Link>
+                Already have an account? <Link to='/'>Log in</Link>
             </div>
         </div>
         </Container>

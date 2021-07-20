@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './MainNavigation.css';
 import { ListItems } from './ListItems';
+import {Link} from 'react-router-dom'
 
 function MainNavigation() {
     const [clicked,setClicked] = useState(false)
@@ -17,7 +18,7 @@ function MainNavigation() {
                     {ListItems.map((item,index) =>{
                         return(
                             <li key={index}>
-                                <a className={item.Cname} href={item.url}>{item.title}</a>
+                                <Link to={item.url} className={item.Cname}>{item.title}</Link>
                             </li>
                         )
                     })}
