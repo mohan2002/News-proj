@@ -1,13 +1,27 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './MainNavigation.css';
 import { ListItems } from './ListItems';
-import {Link} from 'react-router-dom'
-
+import {Link,useHistory} from 'react-router-dom'
+import { useAuth } from '../Context/AuthContext'
+import {firestore} from '../firebase/firebase'
 function MainNavigation() {
     const [clicked,setClicked] = useState(false)
+    const {logout,currentUser} = useAuth()
+    const history = useHistory()
+    const [todo,setTodo] = useState([]);
     function handleClick(){
         setClicked(!clicked)
     }
+    async function logoutUser(){
+        try{
+            await logout()
+            history.push('/')
+        }
+        catch{
+            alert("Failed to Logout")
+        }
+    }
+    
     return (
         <nav className="NavbarItems">
                 <p className="navbar-logo">NEWS APP</p>
@@ -22,6 +36,8 @@ function MainNavigation() {
                             </li>
                         )
                     })}
+                    <button className="button" onClick={logoutUser}>Logout</button>
+
                 </ul>
             </nav>
     )

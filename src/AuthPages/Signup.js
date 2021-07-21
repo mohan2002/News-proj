@@ -5,11 +5,13 @@ import { useAuth } from '../Context/AuthContext'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+
 function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const myname = useRef()
+    const { signup,updateName } = useAuth()
     const [error,setError] = useState('')
     const[loading,setLoading] = useState(false)
     const history = useHistory()
@@ -25,11 +27,14 @@ function Signup() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value,passwordRef.current.value)
+            await updateName(emailRef.current.value,myname.current.value)
             history.push('/homepage')
         }
         catch{
             setError('Failed to create an account')
         }
+
+        
         setLoading(false)
         
     }
@@ -56,6 +61,10 @@ function Signup() {
                         <Form.Group id="password.confirm">
                             <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required />
+                        </Form.Group>
+                        <Form.Group id="text">
+                            <Form.Label>Your Name</Form.Label>
+                            <Form.Control type="text" ref ={myname} required/>
                         </Form.Group>
                         <Button disabled={loading} className="w-100 mt-3"type="submit">Sign Up</Button>
                     
